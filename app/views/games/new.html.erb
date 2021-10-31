@@ -1,0 +1,20 @@
+<h1>TIRAGE DE LETTRES</h1>
+
+<p>What is the longest word you can find?</p>
+
+<ul class="letters">
+  <% @letters.each do |letter| %>
+    <li><%= letter %></li>
+  <% end %>
+</ul>
+
+<form action="/score" method="POST">
+
+  <input type="text" name="word" placeholder="pick the letters to put a word">
+  <input type="submit" value="Play">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :letters, @letters %>
+
+</form>
+
+
